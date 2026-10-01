@@ -1,0 +1,24 @@
+---
+source: crates/squawk_linter/src/rules/ban_table_rewrite.rs
+expression: "lint_errors(sql, Rule::BanTableRewrite)"
+---
+warning[ban-table-rewrite]: Rewriting a table requires an `ACCESS EXCLUSIVE` lock that blocks reads and writes.
+  ╭▸ 
+1 │ ALTER TABLE t SET LOGGED; ALTER TABLE t SET UNLOGGED; ALTER TABLE t SET TABLESPACE ts; ALTER TABLE t SET WITHOUT OIDS; ALTER TABLE t AL…
+  ╰╴              ━━━━━━━━━━
+warning[ban-table-rewrite]: Rewriting a table requires an `ACCESS EXCLUSIVE` lock that blocks reads and writes.
+  ╭▸ 
+1 │ ALTER TABLE t SET LOGGED; ALTER TABLE t SET UNLOGGED; ALTER TABLE t SET TABLESPACE ts; ALTER TABLE t SET WITHOUT OIDS; ALTER TABLE t AL…
+  ╰╴                                        ━━━━━━━━━━━━
+warning[ban-table-rewrite]: Rewriting a table requires an `ACCESS EXCLUSIVE` lock that blocks reads and writes.
+  ╭▸ 
+1 │ ALTER TABLE t SET LOGGED; ALTER TABLE t SET UNLOGGED; ALTER TABLE t SET TABLESPACE ts; ALTER TABLE t SET WITHOUT OIDS; ALTER TABLE t AL…
+  ╰╴                                                                    ━━━━━━━━━━━━━━━━━
+warning[ban-table-rewrite]: Rewriting a table requires an `ACCESS EXCLUSIVE` lock that blocks reads and writes.
+  ╭▸ 
+1 │ ALTER TABLE t SET LOGGED; ALTER TABLE t SET UNLOGGED; ALTER TABLE t SET TABLESPACE ts; ALTER TABLE t SET WITHOUT OIDS; ALTER TABLE t AL…
+  ╰╴                                                                                                     ━━━━━━━━━━━━━━━━
+warning[ban-table-rewrite]: Rewriting a table requires an `ACCESS EXCLUSIVE` lock that blocks reads and writes.
+  ╭▸ 
+1 │ …ER TABLE t SET WITHOUT OIDS; ALTER TABLE t ALTER COLUMN c SET STORAGE PLAIN;
+  ╰╴                                                           ━━━━━━━━━━━━━━━━━

@@ -1,0 +1,24 @@
+---
+source: crates/squawk_linter/src/rules/ban_alter_sequence.rs
+expression: "lint_errors(sql, Rule::BanAlterSequence)"
+---
+warning[ban-alter-sequence]: Altering a sequence may silently change values used by existing clients.
+  ╭▸ 
+1 │ ALTER SEQUENCE s RESTART WITH 10; ALTER SEQUENCE s MINVALUE 2; ALTER SEQUENCE s MAXVALUE 99; ALTER SEQUENCE s AS bigint; ALTER SEQUENCE…
+  ╰╴                 ━━━━━━━━━━━━━━━
+warning[ban-alter-sequence]: Altering a sequence may silently change values used by existing clients.
+  ╭▸ 
+1 │ ALTER SEQUENCE s RESTART WITH 10; ALTER SEQUENCE s MINVALUE 2; ALTER SEQUENCE s MAXVALUE 99; ALTER SEQUENCE s AS bigint; ALTER SEQUENCE…
+  ╰╴                                                   ━━━━━━━━━━
+warning[ban-alter-sequence]: Altering a sequence may silently change values used by existing clients.
+  ╭▸ 
+1 │ ALTER SEQUENCE s RESTART WITH 10; ALTER SEQUENCE s MINVALUE 2; ALTER SEQUENCE s MAXVALUE 99; ALTER SEQUENCE s AS bigint; ALTER SEQUENCE…
+  ╰╴                                                                                ━━━━━━━━━━━
+warning[ban-alter-sequence]: Altering a sequence may silently change values used by existing clients.
+  ╭▸ 
+1 │ ALTER SEQUENCE s RESTART WITH 10; ALTER SEQUENCE s MINVALUE 2; ALTER SEQUENCE s MAXVALUE 99; ALTER SEQUENCE s AS bigint; ALTER SEQUENCE…
+  ╰╴                                                                                                              ━━━━━━━━━
+warning[ban-alter-sequence]: Altering a sequence may silently change values used by existing clients.
+  ╭▸ 
+1 │ …s MAXVALUE 99; ALTER SEQUENCE s AS bigint; ALTER SEQUENCE s INCREMENT BY 2;
+  ╰╴                                                             ━━━━━━━━━━━━━━

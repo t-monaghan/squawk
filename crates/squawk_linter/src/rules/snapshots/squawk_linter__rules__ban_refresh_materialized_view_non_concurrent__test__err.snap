@@ -1,0 +1,8 @@
+---
+source: crates/squawk_linter/src/rules/ban_refresh_materialized_view_non_concurrent.rs
+expression: "lint_errors(sql, Rule::BanRefreshMaterializedViewNonConcurrent)"
+---
+warning[ban-refresh-materialized-view-non-concurrent]: Refreshing a materialized view without CONCURRENTLY blocks readers.
+  ╭▸ 
+1 │ REFRESH MATERIALIZED VIEW mv;
+  ╰╴━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
