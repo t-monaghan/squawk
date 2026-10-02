@@ -34,10 +34,7 @@
               buildInputs = with final; [
                 libiconv
                 openssl
-              ] ++ lib.optionals final.stdenv.isDarwin (with final.darwin.apple_sdk.frameworks; [
-                CoreFoundation
-                Security
-              ]);
+              ];
 
               meta = with lib; {
                 description = "Linter for PostgreSQL, focused on migrations";
@@ -53,7 +50,7 @@
           squawk = pkgs.squawk;
         };
         defaultPackage = self.packages.${system}.squawk;
-        checks = self.packages;
+        checks.squawk = pkgs.squawk;
 
         # for debugging
         inherit pkgs;
